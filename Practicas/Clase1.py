@@ -58,5 +58,3 @@ while cent == 's':
         
     cuenta2.datosCuenta()
     cent = input("¿Desea continuar? (s/n)")
-        
-    
