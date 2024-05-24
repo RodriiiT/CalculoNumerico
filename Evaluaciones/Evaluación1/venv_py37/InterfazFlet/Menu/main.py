@@ -11,18 +11,38 @@ def main(page: ft.Page) -> None:
                 [
                     ft.AppBar(title=ft.Text("Inicio"), bgcolor='blue'),
                     ft.Text(value='Menú', size=30,color='black'),
-                    ft.ElevatedButton("Visit Store", on_click=lambda _: page.go("/store")),
+                    ft.ElevatedButton("Conversor", on_click=lambda _: page.go("/Conversor")),
+                    ft.ElevatedButton("Seidel", on_click=lambda _: page.go("/Seidel")),
                 ],
+                vertical_alignment= ft.MainAxisAlignment.CENTER,
+                horizontal_alignment= ft.CrossAxisAlignment.CENTER,
+                spacing=20
             )
         )
-        if page.route == "/Store":
+        if page.route == "/Conversor":
             page.views.append(
                 ft.View(
-                    "/store",
+                    "/Conversor",
                     [
-                        ft.AppBar(title=ft.Text("Store"), bgcolor=ft.colors.SURFACE_VARIANT),
-                        ft.ElevatedButton("Go Home", on_click=lambda _: page.go("/")),
+                        ft.AppBar(title=ft.Text("Conversor"), bgcolor='blue'),
+                        ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
                     ],
+                    vertical_alignment= ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment= ft.CrossAxisAlignment.CENTER,
+                    spacing=20
+                )
+            )
+        elif page.route == "/Seidel":
+            page.views.append(
+                ft.View(
+                    "/Seidel",
+                    [
+                        ft.AppBar(title=ft.Text("Seidel"), bgcolor='blue'),
+                        ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
+                    ],
+                    vertical_alignment= ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment= ft.CrossAxisAlignment.CENTER,
+                    spacing=20
                 )
             )
         page.update()
