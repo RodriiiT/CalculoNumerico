@@ -3,7 +3,7 @@
 La evaluación 1 consiste en realizar una interfaz en Python utilizando la librería de Flet en la cual
 tiene un menú en donde podrá ir a una página llamada "Conversor" la cual convierte un valor de un
 sistema númerico a otro, también, hay una página llamada "Seidel" en la cual podrá realizar un Gauss-Seidel
-dandole valores una Matriz A y a un Vector B para obtener el valor del Vector X.
+dandole valores una Matriz A y a un Vector B para obtener el valor del Vector X. 
 
 Para correr la interfaz tendrá que tener instalada la librería de flet, la puede instalar de la siguiente forma:
 
@@ -79,3 +79,12 @@ Si desea ejecutar la interfaz en formato Web escriba el siguiente comando en ter
 ```
 flet run --web main.py
 ```
+
+Para descargar las dependencias utilizadas use el siguiente comando:
+
+```
+pip install -r requirements.txt
+```
+
+
+***Programa en desarrollo***
