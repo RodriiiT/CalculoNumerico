@@ -7,8 +7,8 @@ def main(page: ft.Page) -> None:
         page.views.clear()
         page.views.append(
             ft.View(
-                '/',
-                [
+                route='/',
+                controls=[
                     ft.AppBar(title=ft.Text("Inicio"), bgcolor='blue'),
                     ft.Text(value='Menú', size=30,color='black'),
                     ft.ElevatedButton("Conversor", on_click=lambda _: page.go("/Conversor")),
@@ -22,9 +22,44 @@ def main(page: ft.Page) -> None:
         if page.route == "/Conversor":
             page.views.append(
                 ft.View(
-                    "/Conversor",
-                    [
+                    route="/Conversor",
+                    controls=[
                         ft.AppBar(title=ft.Text("Conversor"), bgcolor='blue'),
+                        ft.Dropdown(
+                            label="Seleccione el sistema de salida",
+                            hint_text="Sistema de salida",
+                            options=[
+                                ft.dropdown.Option("Binario"),
+                                ft.dropdown.Option("Ternario"),
+                                ft.dropdown.Option("Cuaternario"),
+                                ft.dropdown.Option("Octal"),
+                                ft.dropdown.Option("Decimal"),
+                                ft.dropdown.Option("Hexadecimal"),
+                                ],
+                                autofocus=True,
+                        ),
+                        ft.TextField(
+                            label="Ingrese el valor que desea convertir"
+                            ),
+                        ft.Dropdown(
+                            label="Seleccione el sistema de salida",
+                            hint_text="Sistema de salida",
+                            options=[
+                                ft.dropdown.Option("Binario"),
+                                ft.dropdown.Option("Ternario"),
+                                ft.dropdown.Option("Cuaternario"),
+                                ft.dropdown.Option("Octal"),
+                                ft.dropdown.Option("Decimal"),
+                                ft.dropdown.Option("Hexadecimal"),
+                                ],
+                                autofocus=True,
+                        ),
+                        ft.TextField(
+                            label="Resultado",
+                            disabled=True,
+                        ),
+                        ft.ElevatedButton("Convertir"),
+                        ft.ElevatedButton("Limpiar"),
                         ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
                     ],
                     vertical_alignment= ft.MainAxisAlignment.CENTER,
@@ -35,8 +70,8 @@ def main(page: ft.Page) -> None:
         elif page.route == "/Seidel":
             page.views.append(
                 ft.View(
-                    "/Seidel",
-                    [
+                    route="/Seidel",
+                    controls=[
                         ft.AppBar(title=ft.Text("Seidel"), bgcolor='blue'),
                         ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
                     ],
@@ -57,4 +92,4 @@ def main(page: ft.Page) -> None:
     page.go(page.route)
 
 
-ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+ft.app(target=main)
