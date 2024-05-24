@@ -82,13 +82,47 @@ def main(page: ft.Page) -> None:
                 ft.View(
                     route="/Seidel",
                     controls=[
-                        ft.AppBar(title=ft.Text("Seidel"), bgcolor='blue'),
+                        ft.AppBar(title=ft.Text("Gauss-Seidel"), bgcolor='blue'),
+                        ft.Dropdown(
+                            label="Seleccione el tamaño de la matriz",
+                            hint_text="Tamaño matriz",
+                            width=page.width*0.5,
+                            options=[
+                                ft.dropdown.Option("3x3"),
+                                ft.dropdown.Option("4x4"),
+                                ft.dropdown.Option("5x5"),
+                                ft.dropdown.Option("6x6"),
+                                ft.dropdown.Option("7x7"),
+                                ft.dropdown.Option("8x8"),
+                                ft.dropdown.Option("9x9"),
+                            ],
+                        ),
+                        ft.Text(
+                            value="Ingrese los valores de la matriz A",
+                            size=20
+                        ),
+                        ft.Text(
+                            value="Ingrese los valores del vector B",
+                            size=20
+                        ),
+                        ft.Text(
+                            value="Vector X resultados",
+                            size=20
+                        ),
+                        ft.Row(
+                            [
+                                ft.ElevatedButton("Operar"),
+                                ft.ElevatedButton("Limpiar"),
+                            ],
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            spacing=10,
+                        ),
                         ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
                     ],
-                    vertical_alignment= ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment= ft.CrossAxisAlignment.CENTER,
+                    vertical_alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     spacing=20
-                )
+                ),
             )
         page.update()
 
@@ -100,6 +134,5 @@ def main(page: ft.Page) -> None:
     page.on_route_change = route_change
     page.on_view_pop = view_pop
     page.go(page.route)
-
 
 ft.app(target=main)
