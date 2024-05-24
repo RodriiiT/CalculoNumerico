@@ -28,6 +28,7 @@ def main(page: ft.Page) -> None:
                         ft.Dropdown(
                             label="Seleccione el sistema de salida",
                             hint_text="Sistema de salida",
+                            width=page.width*0.3,
                             options=[
                                 ft.dropdown.Option("Binario"),
                                 ft.dropdown.Option("Ternario"),
@@ -39,11 +40,13 @@ def main(page: ft.Page) -> None:
                                 autofocus=True,
                         ),
                         ft.TextField(
-                            label="Ingrese el valor que desea convertir"
+                            label="Ingrese el valor que desea convertir",
+                            width=page.width*0.3,
                             ),
                         ft.Dropdown(
                             label="Seleccione el sistema de salida",
                             hint_text="Sistema de salida",
+                            width=page.width*0.3,
                             options=[
                                 ft.dropdown.Option("Binario"),
                                 ft.dropdown.Option("Ternario"),
@@ -57,9 +60,16 @@ def main(page: ft.Page) -> None:
                         ft.TextField(
                             label="Resultado",
                             disabled=True,
+                            width=page.width*0.3,
                         ),
-                        ft.ElevatedButton("Convertir"),
-                        ft.ElevatedButton("Limpiar"),
+                        ft.Row(
+                            [
+                                ft.ElevatedButton("Convertir"),
+                                ft.ElevatedButton("Limpiar"),
+                            ],
+                            alignment= ft.MainAxisAlignment.CENTER,
+                            spacing=10,
+                        ),
                         ft.ElevatedButton("Ir al menú", on_click=lambda _: page.go("/")),
                     ],
                     vertical_alignment= ft.MainAxisAlignment.CENTER,
